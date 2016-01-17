@@ -3,6 +3,7 @@ package com.vega.app.core.application;
 import android.support.multidex.MultiDexApplication;
 
 import com.karumi.dexter.Dexter;
+import com.vega.app.di.component.DaggerVegaApplicationComponent;
 import com.vega.app.di.component.VegaApplicationComponent;
 import com.vega.app.di.module.ApplicationModule;
 
@@ -26,7 +27,7 @@ public class VegaApplication extends MultiDexApplication {
     }
 
     private void initDependencyInjector() {
-        //component = DaggerVegaApplicationComponent.builder().applicationModule(new ApplicationModule(this)).build();
+        component = DaggerVegaApplicationComponent.builder().applicationModule(new ApplicationModule(this)).build();
     }
 
     private void initDexter() {
