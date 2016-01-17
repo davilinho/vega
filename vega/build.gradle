@@ -1,0 +1,48 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 23
+        buildConfigField 'String', 'HOST', '"http://jsonplaceholder.typicode.com/"'
+        buildConfigField 'Integer', 'TIME_BW_GEO_UPDATES', '300000'
+        buildConfigField 'Integer', 'DISTANCE_CHANGE_FOR_UPDATES', '10'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+}
+
+dependencies {
+
+    def lib = parent.ext
+
+    androidTestCompile lib.junit
+    androidTestCompile lib.mockito
+
+    compile lib.javaxAnnotation
+    provided lib.glassfishAnnotation
+
+    compile lib.androidSupportV7
+    compile lib.androidDesign
+    compile lib.androidPlayServices
+    compile lib.androidAnalytics
+    compile lib.androidPathQueue
+    compile lib.androidMultiDex
+
+    compile lib.otto
+    compile lib.retrofit
+    compile lib.butterKnife
+
+    compile lib.gsonConverter
+    compile lib.dagger
+    provided lib.daggerCompiler
+
+    compile lib.dexter
+
+    compile lib.realm
+}
